@@ -1,0 +1,4 @@
+﻿function ligin() {
+
+    var usuario 
+}

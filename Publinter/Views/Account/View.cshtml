@@ -1,0 +1,134 @@
+﻿<body ng-class="{
+    'sidebar_main_active': primarySidebarActive &amp;&amp; !miniSidebarActive &amp;&amp; !topMenuActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'sidebar_main_open': primarySidebarOpen &amp;&amp; !miniSidebarActive &amp;&amp; !slimSidebarActive &amp;&amp; !topMenuActive &amp;&amp; largeScreen &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'sidebar_mini': miniSidebarActive &amp;&amp; largeScreen &amp;&amp; !topMenuActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'sidebar_slim sidebar_slim_inactive': slimSidebarActive &amp;&amp; largeScreen &amp;&amp; !topMenuActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'sidebar_main_hiding': primarySidebarHiding,
+    'sidebar_secondary_active': secondarySidebarActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'top_bar_active': toBarActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'page_heading_active': pageHeadingActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'header_double_height': headerDoubleHeightActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'main_search_active': mainSearchActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'header_full': fullHeaderActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'boxed_layout': boxedLayoutActive &amp;&amp; (!$state.is('login') &amp;&amp; !$state.includes('error')),
+    'login_page': $state.is('login'),
+    'login_page login_page_v2': $state.is('login_v2'),
+    'error_page': $state.includes('error'),
+    'uk-height-1-1': page_full_height,
+    'footer_active': footerActive,
+    'main_search_persistent': mainSearchPersistent
+}" content-sidebar="" class="login_page">
+    <div id="page_preloader" ng-hide="hidePreloader"><img src="assets/img/page_preloader.gif" alt=""></div>
+
+    <!-- uiView: --><div ui-view="" id="main_view" ng-class="{'uk-height-1-1': page_full_height }" class="ng-scope">
+        <div class="login_page_wrapper ng-scope">
+            <div class="md-card" id="login_card">
+                <div class="md-card-content large-padding" id="login_form">
+                    <div class="login_heading">
+                        <div class="user_avatar"></div>
+                    </div>
+                    <form class="ng-pristine ng-valid">
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="login_username">Username</label><input class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" type="text" id="login_username" ng-model="login_username" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="login_password">Password</label><input class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" type="password" id="login_password" ng-model="login_password" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-margin-medium-top">
+                            <a ui-sref="restricted.dashboard" class="md-btn md-btn-primary md-btn-block md-btn-large" href="#/">Sign In</a>
+                        </div>
+                        <div class="uk-grid uk-grid-width-1-3 uk-grid-small uk-margin-top">
+                            <div><a href="#" class="md-btn md-btn-block md-btn-facebook" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Facebook"><i class="uk-icon-facebook uk-margin-remove"></i></a></div>
+                            <div><a href="#" class="md-btn md-btn-block md-btn-twitter" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Twitter"><i class="uk-icon-twitter uk-margin-remove"></i></a></div>
+                            <div><a href="#" class="md-btn md-btn-block md-btn-gplus" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Google+"><i class="uk-icon-google-plus uk-margin-remove"></i></a></div>
+                        </div>
+                        <div class="uk-margin-top">
+                            <a href="#" id="login_help_show" class="uk-float-right" ng-click="loginHelp($event)">Need help?</a>
+                            <span class="icheck-inline">
+                                <div class="icheckbox_md">
+                                <input type="checkbox" name="login_page_stay_signed" id="login_page_stay_signed" icheck="" ng-model="login_signed" class="ng-pristine ng-untouched ng-valid ng-empty" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                                <label for="login_page_stay_signed" class="inline-label">Stay signed in</label>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="md-card-content large-padding uk-position-relative" id="login_help" style="display: none">
+                    <button type="button" class="uk-position-top-right uk-close uk-margin-right uk-margin-top back_to_login" ng-click="backToLogin($event)"></button>
+                    <h2 class="heading_b uk-text-success">Can't log in?</h2>
+                    <p>Here's the info to get you back in to your account as quickly as possible.</p>
+                    <p>First, try the easiest thing: if you remember your password but it isn't working, make sure that Caps Lock is turned off, and that your username is spelled correctly, and then try again.</p>
+                    <p>If your password still isn't working, it's time to <a href="#" id="password_reset_show" ng-click="passwordReset($event)">reset your password</a>.</p>
+                </div>
+                <div class="md-card-content large-padding" id="login_password_reset" style="display: none">
+                    <button type="button" class="uk-position-top-right uk-close uk-margin-right uk-margin-top back_to_login" ng-click="backToLogin($event)"></button>
+                    <h2 class="heading_a uk-margin-large-bottom">Reset password</h2>
+                    <form class="ng-pristine ng-valid">
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="login_email_reset">Your email address</label><input class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="text" id="login_email_reset" ng-model="login_email_reset" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-margin-medium-top">
+                            <a ui-sref="restricted.dashboard" class="md-btn md-btn-primary md-btn-block" href="#/">Reset password</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="md-card-content large-padding" id="register_form" style="display: none">
+                    <button type="button" class="uk-position-top-right uk-close uk-margin-right uk-margin-top back_to_login" ng-click="backToLogin($event)"></button>
+                    <h2 class="heading_a uk-margin-medium-bottom">Create an account</h2>
+                    <form class="ng-pristine ng-valid">
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="register_username">Username</label><input class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="text" id="register_username" ng-model="register_username" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="register_password">Password</label><input class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="password" id="register_password" ng-model="register_password" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="register_password_repeat">Repeat Password</label><input class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="password" id="register_password_repeat" ng-model="register_password_repeat" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="md-input-wrapper"><label for="register_email">E-mail</label><input class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="text" id="register_email" ng-model="register_email" md-input=""><span class="md-input-bar "></span></div>
+
+                        </div>
+                        <div class="uk-margin-medium-top">
+                            <a ui-sref="restricted.dashboard" class="md-btn md-btn-primary md-btn-block md-btn-large" href="#/">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="uk-margin-top uk-text-center">
+                <a href="#" id="signup_form_show" ng-hide="registerFormActive" ng-click="registerForm($event)">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- google web fonts -->
+    <script>
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyC2FodI8g-iCz1KHRFE7_4r8MFLA7Zbyhk&amp;callback=lazyLoadCallback"></script><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>
+</body>
+<script src="~/Scripts/Login/Login.js"></script>

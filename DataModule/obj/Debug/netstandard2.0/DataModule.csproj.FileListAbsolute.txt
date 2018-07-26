@@ -1,0 +1,6 @@
+C:\Users\germa\source\repos\Publinter\DataModule\bin\Debug\netstandard2.0\DataModule.deps.json
+C:\Users\germa\source\repos\Publinter\DataModule\bin\Debug\netstandard2.0\DataModule.dll
+C:\Users\germa\source\repos\Publinter\DataModule\obj\Debug\netstandard2.0\DataModule.csprojAssemblyReference.cache
+C:\Users\germa\source\repos\Publinter\DataModule\obj\Debug\netstandard2.0\DataModule.csproj.CoreCompileInputs.cache
+C:\Users\germa\source\repos\Publinter\DataModule\obj\Debug\netstandard2.0\DataModule.AssemblyInfoInputs.cache
+C:\Users\germa\source\repos\Publinter\DataModule\obj\Debug\netstandard2.0\DataModule.AssemblyInfo.cs
